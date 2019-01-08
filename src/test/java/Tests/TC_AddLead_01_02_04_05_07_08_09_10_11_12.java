@@ -31,7 +31,7 @@ public class TC_AddLead_01_02_04_05_07_08_09_10_11_12 {
 
     public void setup()
     {
-        System.setProperty("webdriver.chrome.driver", ".\\src\\test\\Resources\\drivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", ".\\src\\Resources\\Drivers\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications"); //vô hiệu hóa thông báo chrome
         driver = new ChromeDriver(options);

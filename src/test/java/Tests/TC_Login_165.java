@@ -2,13 +2,12 @@ package Tests;
 
 import Actions.LoginCRMAction;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,10 +18,10 @@ public class TC_Login_165 {
     Properties user = new Properties();
     InputStream input = null;
     String dynamicname = "Thanh Hoa";
-    @Before
+    @BeforeClass
     public void setup()
     {
-        System.setProperty("webdriver.chrome.driver", ".\\src\\test\\Resources\\drivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", ".\\src\\Resources\\Drivers\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications"); //vô hiệu hóa thông báo chrome
         driver = new ChromeDriver(options);

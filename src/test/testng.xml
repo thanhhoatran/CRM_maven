@@ -12,9 +12,9 @@
 
         <classes>
 
-            <class name="Tests.LoginTC" >
+            <class name="Tests.TC_Login_165" >
                 <methods>
-                    <include name="LoginTC1"/>
+                    <include name="TC_Login_165"/>
                     <!--<include name="LoginTC2"/>-->
                 </methods>
             </class>
