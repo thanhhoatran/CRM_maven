@@ -1,0 +1,3 @@
+#Tue Dec 04 21:18:20 ICT 2018
+password=thanhhoa123
+userid=hoa123@abc.abc
