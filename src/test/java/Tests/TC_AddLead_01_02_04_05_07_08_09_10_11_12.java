@@ -3,12 +3,12 @@ package Tests;
 import Actions.AddLeadCRMAction;
 import Actions.LoginCRMAction;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -27,11 +27,11 @@ public class TC_AddLead_01_02_04_05_07_08_09_10_11_12 {
     String dynamicPhoneField = "Phone";
     String dynamicAddressField = "Address";
     Integer row=189;
-    @Before
+    @BeforeClass
 
     public void setup()
     {
-        System.setProperty("webdriver.chrome.driver", ".\\src\\Resources\\Drivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", ".\\src\\test\\Resources\\drivers\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications"); //vô hiệu hóa thông báo chrome
         driver = new ChromeDriver(options);

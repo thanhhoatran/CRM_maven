@@ -3,12 +3,12 @@ package Tests;
 import Actions.LoginCRMAction;
 import Actions.ViewLeadCRMAction;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -23,7 +23,7 @@ public class TC_ViewLead_16_17_19 {
     InputStream input = null;
     String dynamicanyname="Nguyen Thi Thu Hien";
     String dynamicopp = "áo len";
-    @Before
+    @BeforeClass
     public void setup()
     {
         System.setProperty("webdriver.chrome.driver", ".\\src\\test\\Resources\\drivers\\chromedriver.exe");
@@ -71,7 +71,7 @@ public class TC_ViewLead_16_17_19 {
         Assert.assertEquals(true,isAnyName);
     }
 
-    @Test
+   @Test
     //Summary:  Verify that "Customer Information" form displays
     //          after User clicks on any customer name on "Name" column in "Customer List" table
     //          and User can edit customer information successfully with valid data

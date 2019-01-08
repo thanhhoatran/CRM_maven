@@ -21,7 +21,7 @@ public class TC_Login_165 {
     @BeforeClass
     public void setup()
     {
-        System.setProperty("webdriver.chrome.driver", ".\\src\\Resources\\Drivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", ".\\src\\test\\Resources\\drivers\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications"); //vô hiệu hóa thông báo chrome
         driver = new ChromeDriver(options);
@@ -47,6 +47,7 @@ public class TC_Login_165 {
             }
         }
     }
+
     @Test
     //Summary: Verify that the Home page is displayed when the user successfully logs in with the registered account.
     public void TC_Login_165() throws InterruptedException {
