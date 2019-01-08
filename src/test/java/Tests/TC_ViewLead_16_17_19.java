@@ -26,7 +26,7 @@ public class TC_ViewLead_16_17_19 {
     @Before
     public void setup()
     {
-        System.setProperty("webdriver.chrome.driver", ".\\Resources\\drivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", ".\\src\\test\\Resources\\drivers\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications"); //vô hiệu hóa thông báo chrome
         driver = new ChromeDriver(options);
@@ -35,11 +35,11 @@ public class TC_ViewLead_16_17_19 {
 
         try
         {
-            input = new FileInputStream("user.txt");
+            input = new FileInputStream("src/user.txt");
             user.load(input);
-            input = new FileInputStream("customer.txt");
+            input = new FileInputStream("src/customer.txt");
             customer.load(input);
-            input = new FileInputStream("editcustomer.txt");
+            input = new FileInputStream("src/editcustomer.txt");
             editcustomer.load(input);
         }
         catch (IOException ex)

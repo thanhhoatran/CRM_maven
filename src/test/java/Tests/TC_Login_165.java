@@ -31,7 +31,7 @@ public class TC_Login_165 {
 
         try
         {
-            input = new FileInputStream("user.txt");
+            input = new FileInputStream("src/user.txt");
             user.load(input);
         }
         catch (IOException ex)

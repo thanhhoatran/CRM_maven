@@ -40,9 +40,9 @@ public class TC_AddLead_01_02_04_05_07_08_09_10_11_12 {
 
         try
         {
-            input = new FileInputStream("user.txt");
+            input = new FileInputStream("src/user.txt");
             user.load(input);
-            input = new FileInputStream("customer.txt");
+            input = new FileInputStream("src/customer.txt");
             customer.load(input);
         }
         catch (IOException ex)
