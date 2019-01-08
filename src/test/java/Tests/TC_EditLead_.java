@@ -26,7 +26,7 @@ public class TC_EditLead_ {
 
     @BeforeClass
     public void preCondion(){
-        System.setProperty("webdriver.chrome.driver", ".\\src\\Drivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", ".\\src\\test\\Resources\\drivers\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("http://crmweb.ddns.net");
         System.out.println(driver.getTitle());
