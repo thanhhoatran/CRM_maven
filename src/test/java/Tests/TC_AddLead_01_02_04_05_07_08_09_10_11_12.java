@@ -26,7 +26,7 @@ public class TC_AddLead_01_02_04_05_07_08_09_10_11_12 {
     String dynamicEmailField = "Email";
     String dynamicPhoneField = "Phone";
     String dynamicAddressField = "Address";
-    Integer row=189;
+    Integer row=193;
     @BeforeClass
 
     public void setup()
@@ -130,6 +130,33 @@ public class TC_AddLead_01_02_04_05_07_08_09_10_11_12 {
         boolean isEmailField = driver.findElement(By.xpath(EmailFieldXpath)).isDisplayed();
         Assert.assertEquals(true,isEmailField);
     }
+
+
+    @Test
+    //*Summary:  Verify that User can Add customer successfully
+    //          with valid data and this customer information displays in "Customer List" table
+    public void TC_AddLead_04_a() throws InterruptedException {
+        //Preconditions:  "Create Customer" page is opened.
+        LoginCRMAction.enterUsernameAndPassword(driver,user.getProperty("userid"),user.getProperty("password"));
+        LoginCRMAction.clickOnLoginButton(driver);
+        AddLeadCRMAction.clickOnCustomerMenu(driver);
+        Thread.sleep(1000);
+        AddLeadCRMAction.clickOnCreateCustomerMenu(driver);
+        //Step1. Enter valid data into all field
+        AddLeadCRMAction.enterInfoAddCustomer(driver, customer.getProperty("name"),customer.getProperty("email"),customer.getProperty("phone"),customer.getProperty("address"));
+        //Step2. Click on "Create Customer" button
+        AddLeadCRMAction.clickOnCreateButton(driver);
+        AddLeadCRMAction.clickOnEndPageButton(driver);
+        Thread.sleep(1000);
+        //Step3: Search
+        AddLeadCRMAction.enterSearchCustomer(driver, customer.getProperty("name"),customer.getProperty("email"),customer.getProperty("phone"),customer.getProperty("address"));
+
+        //Expected Result:
+        String EmailFieldXpath = "//td[text()='"+customer.getProperty("email")+"']";
+        boolean isEmailField = driver.findElement(By.xpath(EmailFieldXpath)).isDisplayed();
+        Assert.assertEquals(true,isEmailField);
+    }
+
 
     @Test
     //Summary: Verify that  "The email is not valid (ex: abc@abc)" message displays above "Email" field when User add customer on"Create Customer" page with invalid email.
