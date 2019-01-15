@@ -27,12 +27,13 @@ public class AddLeadCRMAction {
         driver.findElement(By.xpath(AddLeadCRMPage.btnCreate)).click();
     }
 
-    public static void enterSearchCustomer(WebDriver driver, String name, String email, String phone, String address)
+    public static void enterSearchCustomer(WebDriver driver, String name, String email, String address, String phone)
     {
         driver.findElement(By.xpath(AddLeadCRMPage.txtSearchName)).sendKeys(name);
         driver.findElement(By.xpath(AddLeadCRMPage.txtSearchEmail)).sendKeys(email);
-        driver.findElement(By.xpath(AddLeadCRMPage.txtSearchPhone)).sendKeys(phone);
         driver.findElement(By.xpath(AddLeadCRMPage.txtSearchAddress)).sendKeys(address);
+        driver.findElement(By.xpath(AddLeadCRMPage.txtSearchPhone)).sendKeys(phone);
+
     }
     public static  void clickOnEndPageButton(WebDriver driver)
     {

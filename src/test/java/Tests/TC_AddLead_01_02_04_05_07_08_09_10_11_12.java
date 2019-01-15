@@ -9,13 +9,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
-public class TC_AddLead_01_02_04_05_07_08_09_10_11_12 {
+public class TC_AddLead_01_02_04_05_07_08_09_10_11_12{
     WebDriver driver;
     Properties user = new Properties();
     Properties customer = new Properties();
@@ -26,7 +26,7 @@ public class TC_AddLead_01_02_04_05_07_08_09_10_11_12 {
     String dynamicEmailField = "Email";
     String dynamicPhoneField = "Phone";
     String dynamicAddressField = "Address";
-    Integer row=193;
+    Integer row=197;
     @BeforeClass
 
     public void setup()
@@ -67,7 +67,7 @@ public class TC_AddLead_01_02_04_05_07_08_09_10_11_12 {
         LoginCRMAction.clickOnLoginButton(driver);
         //Step1. Cick on Customers menu.
         AddLeadCRMAction.clickOnCustomerMenu(driver);
-        Thread.sleep(1000);
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         //Step2. Click on Create Customer link.
         AddLeadCRMAction.clickOnCreateCustomerMenu(driver);
 
@@ -85,7 +85,7 @@ public class TC_AddLead_01_02_04_05_07_08_09_10_11_12 {
         LoginCRMAction.clickOnLoginButton(driver);
         //Step1. Cick on Customers menu.
         AddLeadCRMAction.clickOnCustomerMenu(driver);
-        Thread.sleep(1000);
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         //Step2. Click on Create Customer link.
         AddLeadCRMAction.clickOnCreateCustomerMenu(driver);
 
@@ -115,14 +115,14 @@ public class TC_AddLead_01_02_04_05_07_08_09_10_11_12 {
         LoginCRMAction.enterUsernameAndPassword(driver,user.getProperty("userid"),user.getProperty("password"));
         LoginCRMAction.clickOnLoginButton(driver);
         AddLeadCRMAction.clickOnCustomerMenu(driver);
-        Thread.sleep(1000);
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         AddLeadCRMAction.clickOnCreateCustomerMenu(driver);
         //Step1. Enter valid data into all field
         AddLeadCRMAction.enterInfoAddCustomer(driver, customer.getProperty("name"),customer.getProperty("email"),customer.getProperty("phone"),customer.getProperty("address"));
         //Step2. Click on "Create Customer" button
         AddLeadCRMAction.clickOnCreateButton(driver);
         AddLeadCRMAction.clickOnEndPageButton(driver);
-        Thread.sleep(1000);
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 
 
         //Expected Result:
@@ -140,16 +140,16 @@ public class TC_AddLead_01_02_04_05_07_08_09_10_11_12 {
         LoginCRMAction.enterUsernameAndPassword(driver,user.getProperty("userid"),user.getProperty("password"));
         LoginCRMAction.clickOnLoginButton(driver);
         AddLeadCRMAction.clickOnCustomerMenu(driver);
-        Thread.sleep(1000);
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         AddLeadCRMAction.clickOnCreateCustomerMenu(driver);
         //Step1. Enter valid data into all field
         AddLeadCRMAction.enterInfoAddCustomer(driver, customer.getProperty("name"),customer.getProperty("email"),customer.getProperty("phone"),customer.getProperty("address"));
         //Step2. Click on "Create Customer" button
         AddLeadCRMAction.clickOnCreateButton(driver);
         AddLeadCRMAction.clickOnEndPageButton(driver);
-        Thread.sleep(1000);
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         //Step3: Search
-        AddLeadCRMAction.enterSearchCustomer(driver, customer.getProperty("name"),customer.getProperty("email"),customer.getProperty("phone"),customer.getProperty("address"));
+        AddLeadCRMAction.enterSearchCustomer(driver, customer.getProperty("name"),customer.getProperty("email"),customer.getProperty("address"),customer.getProperty("phone"));
 
         //Expected Result:
         String EmailFieldXpath = "//td[text()='"+customer.getProperty("email")+"']";
@@ -165,7 +165,7 @@ public class TC_AddLead_01_02_04_05_07_08_09_10_11_12 {
         LoginCRMAction.enterUsernameAndPassword(driver,user.getProperty("userid"),user.getProperty("password"));
         LoginCRMAction.clickOnLoginButton(driver);
         AddLeadCRMAction.clickOnCustomerMenu(driver);
-        Thread.sleep(1000);
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         AddLeadCRMAction.clickOnCreateCustomerMenu(driver);
         //Step1. 1. Enter invalid email into "Email" field (E.G: 123123)
         AddLeadCRMAction.enterInfoAddCustomer(driver, customer.getProperty("name"),"123123",customer.getProperty("phone"),customer.getProperty("address"));
@@ -186,7 +186,7 @@ public class TC_AddLead_01_02_04_05_07_08_09_10_11_12 {
         LoginCRMAction.enterUsernameAndPassword(driver,user.getProperty("userid"),user.getProperty("password"));
         LoginCRMAction.clickOnLoginButton(driver);
         AddLeadCRMAction.clickOnCustomerMenu(driver);
-        Thread.sleep(1000);
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         AddLeadCRMAction.clickOnCreateCustomerMenu(driver);
         //StepEnter invalid data into "Phone" filed (E.G: qwe123)
         AddLeadCRMAction.enterInfoAddCustomer(driver, customer.getProperty("name"),customer.getProperty("email"),"qwe123",customer.getProperty("address"));
@@ -207,7 +207,7 @@ public class TC_AddLead_01_02_04_05_07_08_09_10_11_12 {
         LoginCRMAction.enterUsernameAndPassword(driver,user.getProperty("userid"),user.getProperty("password"));
         LoginCRMAction.clickOnLoginButton(driver);
         AddLeadCRMAction.clickOnCustomerMenu(driver);
-        Thread.sleep(1000);
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         AddLeadCRMAction.clickOnCreateCustomerMenu(driver);
         //Step1. Click on "Create Customer" button
         AddLeadCRMAction.clickOnCreateButton(driver);
@@ -226,7 +226,7 @@ public class TC_AddLead_01_02_04_05_07_08_09_10_11_12 {
         LoginCRMAction.enterUsernameAndPassword(driver,user.getProperty("userid"),user.getProperty("password"));
         LoginCRMAction.clickOnLoginButton(driver);
         AddLeadCRMAction.clickOnCustomerMenu(driver);
-        Thread.sleep(1000);
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         AddLeadCRMAction.clickOnCreateCustomerMenu(driver);
         //Step1. Click on "Create Customer" button
         AddLeadCRMAction.clickOnCreateButton(driver);
@@ -245,7 +245,7 @@ public class TC_AddLead_01_02_04_05_07_08_09_10_11_12 {
         LoginCRMAction.enterUsernameAndPassword(driver,user.getProperty("userid"),user.getProperty("password"));
         LoginCRMAction.clickOnLoginButton(driver);
         AddLeadCRMAction.clickOnCustomerMenu(driver);
-        Thread.sleep(1000);
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         AddLeadCRMAction.clickOnCreateCustomerMenu(driver);
         //Step1. Click on "Create Customer" button
         AddLeadCRMAction.clickOnCreateButton(driver);
@@ -264,7 +264,7 @@ public class TC_AddLead_01_02_04_05_07_08_09_10_11_12 {
         LoginCRMAction.enterUsernameAndPassword(driver,user.getProperty("userid"),user.getProperty("password"));
         LoginCRMAction.clickOnLoginButton(driver);
         AddLeadCRMAction.clickOnCustomerMenu(driver);
-        Thread.sleep(1000);
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         AddLeadCRMAction.clickOnCreateCustomerMenu(driver);
         //Step1. Click on "Create Customer" button
         AddLeadCRMAction.clickOnCreateButton(driver);
@@ -284,7 +284,7 @@ public class TC_AddLead_01_02_04_05_07_08_09_10_11_12 {
         LoginCRMAction.enterUsernameAndPassword(driver,user.getProperty("userid"),user.getProperty("password"));
         LoginCRMAction.clickOnLoginButton(driver);
         AddLeadCRMAction.clickOnCustomerMenu(driver);
-        Thread.sleep(1000);
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         AddLeadCRMAction.clickOnCreateCustomerMenu(driver);
         //Step1. Enter a email exists into "Email" filed
         AddLeadCRMAction.enterInfoAddCustomer(driver, customer.getProperty("name"),customer.getProperty("email"),customer.getProperty("phone"),customer.getProperty("address"));

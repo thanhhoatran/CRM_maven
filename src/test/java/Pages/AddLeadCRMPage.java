@@ -11,8 +11,8 @@ public class AddLeadCRMPage {
 
     public static String txtSearchName= "//input[@id='j_idt12:tbl:j_idt13:filter']";
     public static String txtSearchEmail= "//input[@id='j_idt12:tbl:j_idt16:filter']";
-    public static String txtSearchPhone= "//input[@id='j_idt12:tbl:j_idt13:filter']";
-    public static String txtSearchAddress= "//input[@id='j_idt12:tbl:j_idt13:filter']";
+    public static String txtSearchPhone= "//input[@id='j_idt12:tbl:j_idt22:filter']";
+    public static String txtSearchAddress= "//input[@id='j_idt12:tbl:j_idt19:filter']";
 
     public static String btnEndPage = "//div[@id='j_idt12:tbl_paginator_top']//span[@class='ui-icon ui-icon-seek-end']";
 

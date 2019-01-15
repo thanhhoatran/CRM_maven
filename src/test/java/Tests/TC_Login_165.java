@@ -53,6 +53,7 @@ public class TC_Login_165 {
     public void TC_Login_165() throws InterruptedException {
         //Step1:  Enter all valid data in all field of Login form.
         LoginCRMAction.enterUsernameAndPassword(driver,user.getProperty("userid"),user.getProperty("password"));
+        Thread.sleep(3000);
         //Step3: Click on Login button.
         LoginCRMAction.clickOnLoginButton(driver);
         //Expected Result: Navigate to Homepage.
