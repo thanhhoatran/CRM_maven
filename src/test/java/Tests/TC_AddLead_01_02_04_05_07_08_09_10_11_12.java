@@ -13,6 +13,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class TC_AddLead_01_02_04_05_07_08_09_10_11_12{
@@ -26,7 +27,9 @@ public class TC_AddLead_01_02_04_05_07_08_09_10_11_12{
     String dynamicEmailField = "Email";
     String dynamicPhoneField = "Phone";
     String dynamicAddressField = "Address";
-    Integer row=197;
+    Integer row=198;
+    Random rand= new Random();
+    int n = rand.nextInt(50) + 1;
     @BeforeClass
 
     public void setup()
