@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
@@ -17,14 +18,11 @@ public class TC_EditLead_27_28_30_31_32_33_34_35 {
     WebDriver driver;
     String email = "tokyoken@gmail.com";
     String pass = "15091992h";
-    String text = "abcd";
     String textname = "van luat";
     String emailChange = "123123";
     String phoneChange = "qwe123";
     String emailExist = "tokyoken@gmail.com";
     String textchangeaddress = "160 Dong Da";
-
-
 
     @BeforeClass
     public void setup(){
@@ -38,6 +36,7 @@ public class TC_EditLead_27_28_30_31_32_33_34_35 {
     @Test
     //Summary:Verify that "Edit Customer" page displays after searching then clicking on Edit button
     // of each result in "Customer List"table and User can edit customer successfully with valid data
+    //BUG: Missing "Edit" column is located on the right "Phone" column in "Customers List" table
     public void TC_Edit_27(){
         //Preconditions: "Customer" page is opened
         CRMLogin_action.enterEmail_Pass(driver,email,pass);
@@ -54,9 +53,10 @@ public class TC_EditLead_27_28_30_31_32_33_34_35 {
         CRMSearchLead_action.clickBtnSave(driver);
         //Step5: Observed "Customer Information" form
         driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+        //Expected Result: User can edit customer information successfully
+        // and new information displays in "Customer Information" form
         WebElement changeAddress = driver.findElement(By.xpath("//span[contains(.,'"+textchangeaddress+"')]"));
         Assert.assertTrue(changeAddress.isDisplayed());
-        //BUG: Missing "Edit" column is located on the right "Phone" column in "Customers List" table
     }
     @Test
     // Summary: Verify that "The email is not valid (ex: abc@abc)" message displays above "Email" field
@@ -190,6 +190,8 @@ public class TC_EditLead_27_28_30_31_32_33_34_35 {
     @Test
     //Summary: Verify that "That email is taken.Try another" message displays above "Email" field
     // when entering email exists into "Email" field on "Edit Customer" page
+    //BUG: Missing "That email is taken.Try another" message displays above "Email" field
+    // when entering email exists into "Email" field on "Edit Customer" page
     public void TC_Edit_35()  {
         //Preconditions: "Customer" page is opened
         CRMLogin_action.enterEmail_Pass(driver,email,pass);
@@ -208,7 +210,5 @@ public class TC_EditLead_27_28_30_31_32_33_34_35 {
         //Expected Result: "That email is taken.Try another" message displays above "Email" field
         WebElement mssEmail = driver.findElement(By.xpath("//span[contains(.,'That email is taken.Try another')]"));
         Assert.assertTrue(mssEmail.isDisplayed());
-        //BUG: Missing "That email is taken.Try another" message displays above "Email" field
-        // when entering email exists into "Email" field on "Edit Customer" page
     }
 }

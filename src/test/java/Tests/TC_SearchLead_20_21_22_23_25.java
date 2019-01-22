@@ -19,10 +19,11 @@ public class TC_SearchLead_20_21_22_23_25 {
     String pass = "15091992h";
     String text = "abcd";
     String textname = "van luat";
-    String textemail = "kuranh@gmail.com";
+    String textemail = "tokyoken@gmail.com";
     String textaddress = "113 Hai Phong";
     String textchangeaddress = "160 Dong Da";
     WebDriver driver;
+
     @BeforeClass
     public void setup(){
         System.setProperty("webdriver.chrome.driver", ".\\src\\test\\Resources\\drivers\\chromedriver.exe");
@@ -31,10 +32,10 @@ public class TC_SearchLead_20_21_22_23_25 {
         System.out.println(driver.getTitle());
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
-
     }
     @Test
-        //Summary:Verify that User can search customer information after entering valid data into "Search" textbox
+    //Summary:Verify that User can search customer information after entering valid data into "Search" textbox
+    //BUG: "Error 404" page displays after entering valid data into "Search" textbox.
     public void TC_SearchLead_20(){
         //Preconditions: "Customer" page is opened
         CRMLogin_action.enterEmail_Pass(driver,email,pass);
@@ -90,7 +91,8 @@ public class TC_SearchLead_20_21_22_23_25 {
         Assert.assertTrue(address.isDisplayed());
     }
     @Test
-    //Summary:Verify that "Edit Customer" page displays after searching then clicking any customer name of result in "Customer List"table and User can edit customer successfully with valid data
+    //Summary:Verify that "Edit Customer" page displays after searching then clicking any customer name
+    // of result in "Customer List"table and User can edit customer successfully with valid data
     public void TC_SearchLead_25() {
         //Preconditions: "Customer" page is opened
         CRMLogin_action.enterEmail_Pass(driver,email,pass);
@@ -111,6 +113,7 @@ public class TC_SearchLead_20_21_22_23_25 {
         CRMSearchLead_action.clickBtnSave(driver);
         //Step6: Observed "Customer Information" form
         driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+        //Expected Result: User can edit customer information successfully and new information displays in "Customer Information" form
         WebElement changeAddress = driver.findElement(By.xpath("//span[contains(.,'"+textchangeaddress+"')]"));
         Assert.assertTrue(changeAddress.isDisplayed());
     }
