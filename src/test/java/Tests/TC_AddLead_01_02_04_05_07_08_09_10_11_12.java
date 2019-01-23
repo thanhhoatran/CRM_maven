@@ -27,7 +27,7 @@ public class TC_AddLead_01_02_04_05_07_08_09_10_11_12{
     String dynamicEmailField = "Email";
     String dynamicPhoneField = "Phone";
     String dynamicAddressField = "Address";
-    Integer row=200;
+    Integer row=208;
     Random rand= new Random();
     int n = rand.nextInt(50) + 1;
     @BeforeClass
@@ -113,7 +113,33 @@ public class TC_AddLead_01_02_04_05_07_08_09_10_11_12{
     @Test
     //*Summary:  Verify that User can Add customer successfully
     //          with valid data and this customer information displays in "Customer List" table
-    public void TC_AddLead_04() throws InterruptedException {
+    public void TC_AddLead_04_a() throws InterruptedException {
+        //Preconditions:  "Create Customer" page is opened.
+        LoginCRMAction.enterUsernameAndPassword(driver,user.getProperty("userid"),user.getProperty("password"));
+        LoginCRMAction.clickOnLoginButton(driver);
+        AddLeadCRMAction.clickOnCustomerMenu(driver);
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        AddLeadCRMAction.clickOnCreateCustomerMenu(driver);
+        //Step1. Enter valid data into all field
+        AddLeadCRMAction.enterInfoAddCustomer(driver, customer.getProperty("name"),"ac"+customer.getProperty("email"),customer.getProperty("phone"),customer.getProperty("address"));
+        //Step2. Click on "Create Customer" button
+        AddLeadCRMAction.clickOnCreateButton(driver);
+        AddLeadCRMAction.clickOnEndPageButton(driver);
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        //Step3: Search
+        AddLeadCRMAction.enterSearchCustomer(driver, customer.getProperty("name"),"ac"+customer.getProperty("email"),customer.getProperty("address"),customer.getProperty("phone"));
+
+        //Expected Result:
+        String EmailFieldXpath = "//td[text()='"+customer.getProperty("email")+"']";
+        boolean isEmailField = driver.findElement(By.xpath(EmailFieldXpath)).isDisplayed();
+        Assert.assertEquals(true,isEmailField);
+    }
+
+
+    @Test
+    //*Summary:  Verify that User can Add customer successfully
+    //          with valid data and this customer information displays in "Customer List" table
+    public void TC_AddLead_04_b() throws InterruptedException {
         //Preconditions:  "Create Customer" page is opened.
         LoginCRMAction.enterUsernameAndPassword(driver,user.getProperty("userid"),user.getProperty("password"));
         LoginCRMAction.clickOnLoginButton(driver);
@@ -135,30 +161,6 @@ public class TC_AddLead_01_02_04_05_07_08_09_10_11_12{
     }
 
 
-    @Test
-    //*Summary:  Verify that User can Add customer successfully
-    //          with valid data and this customer information displays in "Customer List" table
-    public void TC_AddLead_04_a() throws InterruptedException {
-        //Preconditions:  "Create Customer" page is opened.
-        LoginCRMAction.enterUsernameAndPassword(driver,user.getProperty("userid"),user.getProperty("password"));
-        LoginCRMAction.clickOnLoginButton(driver);
-        AddLeadCRMAction.clickOnCustomerMenu(driver);
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-        AddLeadCRMAction.clickOnCreateCustomerMenu(driver);
-        //Step1. Enter valid data into all field
-        AddLeadCRMAction.enterInfoAddCustomer(driver, customer.getProperty("name"),customer.getProperty("email"),customer.getProperty("phone"),customer.getProperty("address"));
-        //Step2. Click on "Create Customer" button
-        AddLeadCRMAction.clickOnCreateButton(driver);
-        AddLeadCRMAction.clickOnEndPageButton(driver);
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-        //Step3: Search
-        AddLeadCRMAction.enterSearchCustomer(driver, customer.getProperty("name"),customer.getProperty("email"),customer.getProperty("address"),customer.getProperty("phone"));
-
-        //Expected Result:
-        String EmailFieldXpath = "//td[text()='"+customer.getProperty("email")+"']";
-        boolean isEmailField = driver.findElement(By.xpath(EmailFieldXpath)).isDisplayed();
-        Assert.assertEquals(true,isEmailField);
-    }
 
 
     @Test
@@ -174,6 +176,7 @@ public class TC_AddLead_01_02_04_05_07_08_09_10_11_12{
         AddLeadCRMAction.enterInfoAddCustomer(driver, customer.getProperty("name"),"123123",customer.getProperty("phone"),customer.getProperty("address"));
         //Step2. Click on "Create Customer" button
         AddLeadCRMAction.clickOnCreateButton(driver);
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 
         //Expected Result: "The email is not valid (ex: abc@abc)" message displays above "Email" field
         String EmailFieldXpath = "//span[text()='The email is not valid (ex: abc@abc)']";
