@@ -12,7 +12,7 @@
 
         <classes>
 
-            <class name="TC_AddLead_01_02_04_05_07_08_09_10_11_12" >
+            <class name="Tests.TC_AddLead_01_02_04_05_07_08_09_10_11_12" >
                 <methods>
                     <include name="TC_AddLead_01"/>s
                     <!--<include name="LoginTC2"/>-->
